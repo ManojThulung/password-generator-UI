@@ -23,6 +23,7 @@
 
     <title>Document</title>
   </head>
+
   <body>
     <!-- Navigation bar START  -->
     <nav class="navbar navbar-expand-md navbar-dark">
@@ -135,7 +136,12 @@
             </div>
             <div class="pw-length-generate row">
               <div class="length-input-sec col-2">
-                <input name="pw-length" id="pw-length-input" />
+                <input
+                  name="pw-length"
+                  maxlength="2"
+                  id="pw-length-input"
+                  onkeyup="numbersOnly(this)"
+                />
               </div>
               <div class="col-10">
                 Password Length
@@ -179,5 +185,11 @@
       </div>
     </div>
     <!-- Footer Section END -->
+    <script>
+      function numbersOnly(input) {
+        const regex = /[^0-5]+/;
+        input.value = input.value.replace(regex, "");
+      }
+    </script>
   </body>
 </html>
